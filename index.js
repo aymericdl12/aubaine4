@@ -35,7 +35,7 @@ app.get('/db', function(request, response) {
 	var MongoClient = require('mongodb').MongoClient;
 	var assert = require('assert');
 	// Connection URL 
-	var url = "mongodb://heroku_0n4jh21r:q538pkmlkdgdhsuur43augl084@ds011271.mlab.com:11271/heroku_0n4jh21r";
+	var url = "mongodb://heroku_73397x48:f6cr0qggse5nb158s6nups3hu3@ds047592.mlab.com:47592/heroku_73397x48";
 	// Use connect method to connect to the Server 
 	MongoClient.connect(url, function(err, db) {
 		assert.equal(null, err);
