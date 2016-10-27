@@ -8,7 +8,7 @@ var cool = require('cool-ascii-faces');
 var DEALS_COLLECTION = "deals";// Connection URL 
 var db_url = "mongodb://heroku_73397x48:f6cr0qggse5nb158s6nups3hu3@ds047592.mlab.com:47592/heroku_73397x48";
 
-app.set('port', (process.env.PORT || 5000));
+// app.set('port', (process.env.PORT || 5000));
 
 var app = express();
 app.use(express.static(__dirname + '/public'));
