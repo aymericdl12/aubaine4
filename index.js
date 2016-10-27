@@ -1,6 +1,6 @@
 var express = require('express');
-var app = express();
 var path = require("path");
+var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 var cool = require('cool-ascii-faces');
@@ -10,6 +10,7 @@ var db_url = "mongodb://heroku_73397x48:f6cr0qggse5nb158s6nups3hu3@ds047592.mlab
 
 app.set('port', (process.env.PORT || 5000));
 
+var app = express();
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
