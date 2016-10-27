@@ -20,7 +20,7 @@ app.listen(app.get('port'), function() {
 
 app.get('/cool', function(request, response) {
   response.send(cool());
-  console.log('coucou locale');
+  console.log('coucou github');
 });
 
 app.get('/times', function(request, response) {
