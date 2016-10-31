@@ -13,6 +13,7 @@ var db_url = "mongodb://heroku_73397x48:f6cr0qggse5nb158s6nups3hu3@ds047592.mlab
 var app = express();
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
 
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
@@ -46,14 +47,14 @@ mongodb.MongoClient.connect(db_url, function (err, database) {
 
 app.get("/deals", function(req, res) {
     var category="boutiques";
-    console.dir(res.body)
+    console.dir(req.body)
   if (req.body.category) {
     category=req.body.category;
     console.log("category detectee :) :");
     console.log(req.body.category);
   }
   else{    
-    console.log("category non detectee :( :");
+    console.log("category non detectee :(  :");
     console.log(req.body.category);
   }
   db.collection(DEALS_COLLECTION).find({"category": category}).toArray(function(err, docs) {
