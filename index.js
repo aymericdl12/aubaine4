@@ -46,7 +46,7 @@ mongodb.MongoClient.connect(db_url, function (err, database) {
 
 app.get("/deals", function(req, res) {
   if (!req.body.category) {
-    category="bars_cafes";
+    category="boutiques";
   }
   else{
     var category=req.body.category;
