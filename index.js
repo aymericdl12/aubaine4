@@ -12,7 +12,6 @@ var db_url = "mongodb://heroku_73397x48:f6cr0qggse5nb158s6nups3hu3@ds047592.mlab
 
 var app = express();
 app.use(express.static(__dirname + '/public'));
-app.use(express.bodyParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
