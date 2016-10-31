@@ -48,6 +48,12 @@ app.get("/deals", function(req, res) {
     var category="boutiques";
   if (req.body.category) {
     category=req.body.category;
+    console.log("category detectee :) :");
+    console.log(req.body.category);
+  }
+  else{    
+    console.log("category non detectee :( :");
+    console.log(req.body.category);
   }
   db.collection(DEALS_COLLECTION).find({"category": category}).toArray(function(err, docs) {
     if (err) {
