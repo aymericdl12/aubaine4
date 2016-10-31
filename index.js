@@ -46,6 +46,7 @@ mongodb.MongoClient.connect(db_url, function (err, database) {
 
 app.get("/deals", function(req, res) {
     var category="boutiques";
+    console.dir(res.body)
   if (req.body.category) {
     category=req.body.category;
     console.log("category detectee :) :");
