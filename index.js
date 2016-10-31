@@ -45,7 +45,13 @@ mongodb.MongoClient.connect(db_url, function (err, database) {
  */
 
 app.get("/deals", function(req, res) {
-  db.collection(DEALS_COLLECTION).find({}).toArray(function(err, docs) {
+  if (!req.body.category) {
+    category="bars_cafes";
+  }
+  else{
+    var category=req.body.category;
+  }
+  db.collection(DEALS_COLLECTION).find({"category": category}).toArray(function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get deals.");
     } else {
@@ -58,8 +64,8 @@ app.post("/deals", function(req, res) {
   var newDeal = req.body;
   newDeal.createDate = new Date();
 
-  if (!(req.body.firstName || req.body.lastName)) {
-    handleError(res, "Invalid user input", "Must provide a first or last name.", 400);
+  if (!(req.body.titre && req.body.descri && req.body.lat && req.body.longitude)) {
+    handleError(res, "Invalid deal input", "Must provide a title, description, lat and long.", 400);
   }
 
   db.collection(DEALS_COLLECTION).insertOne(newDeal, function(err, doc) {
@@ -152,4 +158,3 @@ app.listen(app.get('port'), function() {
 // 		response.send(cool());
 // 	});
 // });
-
