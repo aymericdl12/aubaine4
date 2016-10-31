@@ -45,11 +45,9 @@ mongodb.MongoClient.connect(db_url, function (err, database) {
  */
 
 app.get("/deals", function(req, res) {
-  if (!req.body.category) {
-    category="boutiques";
-  }
-  else{
-    var category=req.body.category;
+    var category="boutiques";
+  if (req.body.category) {
+    category=req.body.category;
   }
   db.collection(DEALS_COLLECTION).find({"category": category}).toArray(function(err, docs) {
     if (err) {
