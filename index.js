@@ -47,15 +47,15 @@ mongodb.MongoClient.connect(db_url, function (err, database) {
 
 app.get("/deals", function(req, res) {
     var category="boutiques";
-    console.dir(req.body)
-  if (req.body.category) {
-    category=req.body.category;
+    console.dir(req.params)
+  if (req.params.category) {
+    category=req.params.category;
     console.log("category detectee :) :");
-    console.log(req.body.category);
+    console.log(req.params.category);
   }
   else{    
     console.log("category non detectee :(  :");
-    console.log(req.body.category);
+    console.log(req.params.category);
   }
   db.collection(DEALS_COLLECTION).find({"category": category}).toArray(function(err, docs) {
     if (err) {
