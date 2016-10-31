@@ -53,7 +53,7 @@ app.get("/deals", function(req, res) {
     console.log(req.body.category);
   }
   else{    
-    console.log("category non detectee :( :");
+    console.log("category non detectee :(  :");
     console.log(req.body.category);
   }
   db.collection(DEALS_COLLECTION).find({"category": category}).toArray(function(err, docs) {
